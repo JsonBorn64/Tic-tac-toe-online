@@ -1,0 +1,232 @@
+@import 'bootstrap-normalize.css';
+$backgroundBody: rgb(233, 230, 221);
+$backgroundField: rgb(223, 217, 201);
+@import 'header.scss';
+
+// game
+body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px 0;
+    background-color: $backgroundBody;
+}
+
+#alert {
+    position: absolute;
+    top: -40px;
+    background-color: rgb(204, 223, 201);
+    padding: 5px 10px;
+    transition: 400ms top;
+    text-align: center;
+    max-width: 250px;
+    z-index: 999;
+}
+
+.tictac_wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 302px;
+    & .tictac_title {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    & .game_info{
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        width: 100%;
+    }
+    & .now_turn {
+        & span {
+            font-size: 20px;
+            font-weight: bold;
+            color: blue;
+        }
+    }
+    #now_turn_tip {
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.5);
+        font-weight: normal;
+    }
+    & .tictac_field {
+        display: flex;
+        flex-wrap: wrap;
+        width: 302px;
+        height: 302px;
+        background-color: $backgroundField;
+        border: 1px solid black;
+    }
+    & .tictac_cell {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+    }
+    & .result_popup {
+        position: absolute;
+        text-align: center;
+        left: -100%;
+        width: 270px;
+        top: 60%;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        transition: 500ms;
+        backdrop-filter: blur(6px);
+        padding: 25px 35px;
+    }
+    & .score {
+        font-size: 20px;
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & span {
+            font-size: 24px;
+            margin: 0 8px;
+            font-weight: 600;
+        }
+        & span:nth-child(1) {
+            color: blue;
+        }
+        & span:nth-child(2) {
+            color: red;
+        }
+    }
+    & .win_message {
+        margin-top: -5px;
+    }
+    & #newGame {
+        width: 150px;
+        height: 34px;
+        background-color: rgba(255, 255, 255, 0.6);
+        margin-top: 18px;
+    }
+}
+
+// index
+.tictac_subtitle {
+    align-self: start;
+}
+
+.create_room_popup {
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+    background-color: $backgroundField;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    padding: 10px 12px;
+    position: absolute;
+    transition: 400ms;
+    flex-wrap: wrap;
+    display: flex;
+    left: -100%;
+    opacity: 0;
+    top: 50%;
+    & label {
+        margin-bottom: 5px;
+        font-size: 18px;
+    }
+    & button {
+        margin-top: 6px;
+        padding: 0 19px;
+        height: 28px;
+        background-color: $backgroundBody;
+        transition: 300ms;
+        &:hover {
+            background-color: rgb(240, 240, 240)
+        }
+    }
+    & button[type="submit"] {
+        margin-right: auto;
+    }
+    & input {
+        margin-bottom: 5px;
+        padding-left: 8px;
+        width: 200px;
+        border: none;
+        background-color: rgb(240, 240, 240);
+    }
+}
+
+.game_mods {
+    width: 100%;
+}
+
+.game_mod {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    background-color: $backgroundField;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 300ms background;
+    &:hover {
+        background-color: rgb(235, 226, 207);
+    }
+    & .mod_icon {
+        height: 20px;
+    }
+    & .icon1 {
+        margin-left: 6.88px;
+        margin-right: 26.88px;
+    }
+    & .icon2 {
+        margin-left: 5.63px;
+        margin-right: 25.63px;
+    }
+    & .icon3 {
+        margin-right: 20px;
+    }
+}
+
+.online_mod {
+    background-color: $backgroundField;
+    margin-top: -13px;
+    width: 100%;
+    max-height: 0px;
+    overflow: scroll;
+    border-bottom: 1px solid $backgroundField;
+    transition: 600ms max-height;
+    & h6 {
+        margin: 4px 0 10px 18px;
+    }
+    & .rooms {
+        text-align: center;
+    }
+    & .room {
+        display: flex;
+        justify-content: space-between;
+        background-color: $backgroundBody;
+        padding: 4px 18px;
+        margin: 8px 0;
+        cursor: pointer;
+        transition: 300ms background;
+        &:hover {
+            background-color: rgb(240, 240, 240)
+        }
+    }
+    & button {
+        display: flex;
+        margin: 6px auto 8px auto;
+        background-color: $backgroundBody;
+        padding: 2px 30px;
+        transition: 300ms background;
+        justify-content: center;
+        &:hover {
+            background-color: rgb(240, 240, 240)
+        }
+    }
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+}

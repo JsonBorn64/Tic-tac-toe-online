@@ -1,0 +1,17 @@
+{
+    "/js/index.js": "/js/index.js",
+    "/js/single.js": "/js/single.js",
+    "/js/vsComp.js": "/js/vsComp.js",
+    "/js/room.js": "/js/room.js",
+    "/css/room.css": "/css/room.css",
+    "/css/single.css": "/css/single.css",
+    "/css/index.css": "/css/index.css",
+    "/index.html": "/index.html",
+    "/single.html": "/single.html",
+    "/vsComp.html": "/vsComp.html",
+    "/room.html": "/room.html",
+    "/assets/ico/favicon.ico": "/assets/ico/favicon.ico",
+    "/assets/svg/Chip.svg": "/assets/svg/Chip.svg",
+    "/assets/svg/Multi.svg": "/assets/svg/Multi.svg",
+    "/assets/svg/Single.svg": "/assets/svg/Single.svg"
+}

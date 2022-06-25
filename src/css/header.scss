@@ -1,0 +1,180 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: $backgroundField;
+    align-items: center;
+    height: 50px;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    padding: 0 20px;
+    & .back_button {
+        font-size: 34px;
+        height: 36px;
+        display: flex;
+        visibility: hidden;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10px 6px 10px;
+        margin-left: -10px;
+        cursor: pointer;
+        transition: 300ms;
+        &:hover {
+            background-color: $backgroundBody;
+        }
+    }
+    & .login_wrapper {
+        display: flex;
+    }
+    & .login_button {
+        font-weight: 600;
+        padding: 4px 10px;
+        margin-right: -10px;
+        cursor: pointer;
+        transition: 300ms;
+        &:hover {
+            background-color: $backgroundBody;
+        }
+    }
+    & .register_button {
+        margin: auto 0;
+        padding: 4px 10px;
+        cursor: pointer;
+        transition: 300ms;
+        &:hover {
+            background-color: $backgroundBody;
+        }
+    }
+    & .forms_overlay {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        height: calc(100vh - 50px);
+        width: 100vw;
+        z-index: 9;
+        visibility: hidden;
+        transition: 300ms;
+    }
+    & .login_form {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        background-color: $backgroundField;
+        transition: 300ms;
+        opacity: 0;
+        padding: 10px 12px;
+        visibility: hidden;
+        top: 60px;
+        right: 10px;
+        z-index: 10;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+        & input {
+            margin-bottom: 5px;
+            padding-left: 8px;
+            border: none;
+            background-color: rgb(240, 240, 240);
+        }
+        & button {
+            margin-top: 5px;
+            height: 28px;
+            background-color: $backgroundBody;
+            transition: 300ms;
+            &:hover {
+                background-color: rgb(240, 240, 240)
+            }
+        }
+        & > div {
+            font-size: 14px;
+            cursor: pointer;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    & .register_form {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        background-color: $backgroundField;
+        transition: 300ms;
+        opacity: 0;
+        width: 300px;
+        padding: 10px 12px;
+        visibility: hidden;
+        top: 60px;
+        right: 10px;
+        z-index: 10;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+        & input {
+            margin-bottom: 5px;
+            padding-left: 8px;
+            border: none;
+            background-color: rgb(240, 240, 240);
+        }
+        & button {
+            margin-top: 5px;
+            height: 28px;
+            background-color: $backgroundBody;
+            transition: 300ms;
+            &:hover {
+                background-color: rgb(240, 240, 240)
+            }
+        }
+    }
+    & .pass_recovery_form {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        background-color: $backgroundField;
+        max-width: 260px;
+        transition: 300ms;
+        opacity: 0;
+        width: 300px;
+        padding: 10px 12px;
+        visibility: hidden;
+        top: 60px;
+        right: 10px;
+        z-index: 10;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+        & label {
+            margin-bottom: 5px;
+        }
+        & input {
+            margin-bottom: 5px;
+            padding-left: 8px;
+            border: none;
+            background-color: rgb(240, 240, 240);
+        }
+        & button {
+            margin-top: 5px;
+            height: 28px;
+            background-color: $backgroundBody;
+            transition: 300ms;
+            &:hover {
+                background-color: rgb(240, 240, 240)
+            }
+        }
+    }
+    & .login_info {
+        display: none;
+    }
+    & .nickname {
+        cursor: pointer;
+        padding: 4px 10px;
+    }
+    & .logout {
+        padding: 4px 10px;
+        margin-right: -10px;
+        cursor: pointer;
+        transition: 300ms;
+        &:hover {
+            background-color: $backgroundBody;
+        }
+    }
+}
+
+.form_active {
+    visibility: visible !important;
+    opacity: 1 !important;
+}

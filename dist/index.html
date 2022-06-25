@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>Крестики нолики</title>
+    <link rel="shortcut icon" href="assets/ico/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/index.css">
+    <script defer src="js/index.js"></script>
+</head>
+
+<body>
+    <div id="alert"></div>
+    <header>
+        <a class="back_button" href="/">«</a>
+        <div class="login_info">
+            <strong class="nickname"></strong>
+            <div class="logout">Выйти</div>
+        </div>
+        <div class="login_wrapper">
+            <div class="register_button">Регистрация</div>
+            <div class="login_button">Вход</div>
+            <div class="forms_overlay"></div>
+            <form class="register_form">
+                <input type="text" name="login" placeholder="Логин* (ник)" minlength="3" maxlength="20" required>
+                <input type="email" name="email" placeholder="Email (для восстановления пароля)" maxlength="50">
+                <input type="password" name="password" placeholder="Пароль*" minlength="6" maxlength="20" required>
+                <button name="submit">Зарегистрироваться</button>
+            </form>
+            <form class="login_form">
+                <input type="text" name="login" placeholder="Логин или email" minlength="3" maxlength="20" required>
+                <input type="password" name="password" placeholder="Пароль" minlength="6" maxlength="20" required>
+                <div id="pass_recovery">Забыли пароль?</div>
+                <button name="submit">Войти</button>
+            </form>
+            <form class="pass_recovery_form">
+                <label for="login">Пароль придёт на почту указанную при регистрации</label>
+                <input type="text" id="login" name="login" placeholder="Введите ник" minlength="3" maxlength="20" required>
+                <button name="submit">Восстановить</button>
+            </form>
+        </div>
+    </header>
+    <div class="tictac_wrapper">
+        <h2 class="tictac_title">Крестики-нолики</h2>
+        <h6 class="tictac_subtitle">Режимы игры:</h6>
+        <div class="game_mods">
+            <a class="game_mod" href="single.html">
+                <img src="assets/svg/Single.svg" class="mod_icon icon1">
+                <div class="mod_title">Одиночный</div>
+            </a>
+            <a class="game_mod" href="vsComp.html">
+                <img src="assets/svg/Chip.svg" class="mod_icon icon2">
+                <div class="mod_title">Против компьютера</div>
+            </a>
+            <div class="game_mod">
+                <img src="assets/svg/Multi.svg" class="mod_icon icon3">
+                <div class="mod_title">Онлайн</div>
+            </div>
+        </div>
+        <div class="online_mod">
+            <h6>Комнаты:</h6>
+            <div class="rooms">Загрузка...</div>
+            <button id="create_room">Создать свою комнату</button>
+        </div>
+        <form class="create_room_popup">
+            <label>Создание комнаты</label>
+            <input type="text" placeholder="Введите название..." minlength="3" maxlength="17" required>
+            <button name="submit" type="submit">Создать</button>
+            <button type="button">Отмена</button>
+        </form>
+    </div>
+</body>

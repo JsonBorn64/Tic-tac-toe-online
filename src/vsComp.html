@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>Крестики нолики против компьютера</title>
+    <link rel="shortcut icon" href="assets/ico/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/single.css">
+    <script type="text/javascript" src="js/vsComp.js" defer></script>
+</head>
+
+<body>
+    <div id="alert"></div>
+    <header>
+        <a class="back_button" href="/">«</a>
+        <div class="login_info">
+            <strong class="nickname"></strong>
+            <div class="logout">Выйти</div>
+        </div>
+        <div class="login_wrapper">
+            <div class="register_button">Регистрация</div>
+            <div class="login_button">Вход</div>
+            <div class="forms_overlay"></div>
+            <form class="register_form">
+                <input type="text" name="login" placeholder="Логин* (ник)" minlength="3" maxlength="20" required>
+                <input type="email" name="email" placeholder="Email (для восстановления пароля)" maxlength="50">
+                <input type="password" name="password" placeholder="Пароль*" minlength="6" maxlength="20" required>
+                <button name="submit">Зарегистрироваться</button>
+            </form>
+            <form class="login_form">
+                <input type="text" name="login" placeholder="Логин или email" minlength="3" maxlength="20" required>
+                <input type="password" name="password" placeholder="Пароль" minlength="6" maxlength="20" required>
+                <div id="pass_recovery">Забыли пароль?</div>
+                <button name="submit">Войти</button>
+            </form>
+            <form class="pass_recovery_form">
+                <label for="login">Пароль придёт на почту указанную при регистрации</label>
+                <input type="text" id="login" name="login" placeholder="Введите ник" minlength="3" maxlength="20" required>
+                <button name="submit">Восстановить</button>
+            </form>
+        </div>
+    </header>
+    <div class="tictac_wrapper">
+        <h3 class="tictac_title">Крестики-нолики против компьютера</h3>
+        <h6 class="now_turn">Сейчас ходят: <span>x</span> </h6>
+        <div class="tictac_field">
+            <div class="tictac_cell"></div>
+            <div class="tictac_cell"></div>
+            <div class="tictac_cell"></div>
+            <div class="tictac_cell"></div>
+            <div class="tictac_cell"></div>
+            <div class="tictac_cell"></div>
+            <div class="tictac_cell"></div>
+            <div class="tictac_cell"></div>
+            <div class="tictac_cell"></div>
+        </div>
+        <div class="blocked"></div>
+        <div class="result_popup">
+            <h5 class="win_message">Победили крестики</h5>
+            <div class="score">Счёт <span>0</span> : <span>0</span></div>
+            <button id="newGame">Новая игра</button>
+        </div>
+    </div>
+</body>
+
+</html>
