@@ -149,8 +149,9 @@ function popupResultRender(turn) {
     }
 }
 
+let lastStatsUpdate = 0
 function playerStatsUpdate(turn) {
-    if (nick() == undefined) return
+    if (nick() == undefined || lastStatsUpdate > Date.now()-300) return
     get(ref(db, `tictac/registeredUsers/${nick().toLowerCase()}`)).then(snap => {
         set(ref(db, `tictac/registeredUsers/${nick().toLowerCase()}/parties`), ++snap.val().parties)
         if (turn == 'x' && playerRole == 'x') {
@@ -162,7 +163,8 @@ function playerStatsUpdate(turn) {
         } else {
             set(ref(db, `tictac/registeredUsers/${nick().toLowerCase()}/losses`), ++snap.val().losses)
         }
-    })    
+    })
+    lastStatsUpdate = Date.now()
 }
 
 function newGame() {
@@ -233,7 +235,7 @@ function getIpCity() {
         playerAuthCheck()
     }).catch(err => console.log('Не удается получить айпи адрес: ', err))
 }
-console.log(nick())
+
 function distributePlayerRoles(snap) {
     // Players roles
     Object.keys(snap.val()).some((key, idx) => {
