@@ -126,6 +126,7 @@ function winChecking() {
 }
 
 function popupResultRender(turn) {
+    playerStatsUpdate(turn)
     nowTurn.style.opacity = '0'
     nowTurnTip.style.opacity = '0'
     resultPopup.style.left = '50%'
@@ -143,6 +144,22 @@ function popupResultRender(turn) {
         winMessage.style.color = 'black'
         scoreEl.innerHTML = `Счёт<span>${score[0]}</span>:<span>${score[1]}</span>`
     }
+}
+
+function playerStatsUpdate(turn) {
+    const nick = localStorage.getItem('login').toLowerCase()
+    get(ref(db, `tictac/registeredUsers/${nick}`)).then(snap => {
+        set(ref(db, `tictac/registeredUsers/${nick}/parties`), ++snap.val().parties)
+        if (turn == 'x' && playerRole == 'x') {
+            set(ref(db, `tictac/registeredUsers/${nick}/wins`), ++snap.val().wins)
+        } else if (turn == 'o' && playerRole == 'o') {
+            set(ref(db, `tictac/registeredUsers/${nick}/wins`), ++snap.val().wins)
+        } else if (turn != playerRole) {
+            set(ref(db, `tictac/registeredUsers/${nick}/losses`), ++snap.val().losses)
+        } else {
+            set(ref(db, `tictac/registeredUsers/${nick}/draws`), ++snap.val().draws)
+        }
+    })    
 }
 
 function newGame() {

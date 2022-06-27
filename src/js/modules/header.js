@@ -58,7 +58,8 @@ export default function header(db, ref, set, get, myAlert) {
     function renderPlayerStats() {
         const nick = localStorage.getItem('login').toLowerCase()
         get(ref(db, `tictac/registeredUsers/${nick}`)).then(snap => {
-            const winsPercent = (snap.val().wins/(snap.val().parties/100)).toPrecision(2)
+            let winsPercent = (snap.val().wins/(snap.val().parties/100)).toPrecision(2)
+            if (isNaN(winsPercent)) winsPercent = 0
             if (snap.exists()) {
                 playerStats[0].innerHTML = snap.val().parties
                 playerStats[1].innerHTML = `${winsPercent}%`
