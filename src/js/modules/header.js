@@ -58,9 +58,10 @@ export default function header(db, ref, set, get, myAlert) {
     function renderPlayerStats() {
         const nick = localStorage.getItem('login').toLowerCase()
         get(ref(db, `tictac/registeredUsers/${nick}`)).then(snap => {
+            const winsPercent = (snap.val().wins/(snap.val().parties/100)).toPrecision(2)
             if (snap.exists()) {
                 playerStats[0].innerHTML = snap.val().parties
-                playerStats[1].innerHTML = `${snap.val().parties/100*snap.val().wins*100}%`
+                playerStats[1].innerHTML = `${winsPercent}%`
                 playerStats[2].innerHTML = snap.val().wins
                 playerStats[3].innerHTML = snap.val().draws
                 playerStats[4].innerHTML = snap.val().losses
@@ -114,6 +115,10 @@ export default function header(db, ref, set, get, myAlert) {
     registerForm.addEventListener('submit', function (e) {
         e.preventDefault()
         const data = formData(this)
+        data.parties = 0
+        data.wins = 0
+        data.draws = 0
+        data.losses = 0
         this.submit.disabled = true
         get(ref(db, `tictac/registeredUsers/${data.login.toLowerCase()}`)).then(snap => {
             if (snap.exists()) {

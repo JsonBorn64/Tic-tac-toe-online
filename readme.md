@@ -1,2 +1,2 @@
 # Tic-tac-toe
-Online game with rooms and raitings
+Online game with rooms and ratings
