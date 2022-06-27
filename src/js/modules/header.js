@@ -12,6 +12,7 @@ export default function header(db, ref, set, get, myAlert) {
     const loginInfoNick = loginInfo.querySelector('.nickname')
     const logoutBtn = loginInfo.querySelector('.logout')
     const backBtn = document.querySelector('.back_button')
+    const playerStats = loginInfo.querySelectorAll('.player_stats_item_value')
 
     function authCheck() {
         const login = localStorage.getItem('login')
@@ -53,6 +54,25 @@ export default function header(db, ref, set, get, myAlert) {
         form.reset()
         authCheck()
     }
+
+    function renderPlayerStats() {
+        const nick = localStorage.getItem('login').toLowerCase()
+        get(ref(db, `tictac/registeredUsers/${nick}`)).then(snap => {
+            if (snap.exists()) {
+                playerStats[0].innerHTML = snap.val().parties
+                playerStats[1].innerHTML = `${snap.val().parties/100*snap.val().wins*100}%`
+                playerStats[2].innerHTML = snap.val().wins
+                playerStats[3].innerHTML = snap.val().draws
+                playerStats[4].innerHTML = snap.val().losses
+            } else {
+                playerStats.forEach(item => item.innerHTML = 'error')
+            }
+        })
+    }
+
+    loginInfo.addEventListener('mouseenter', () => {
+        renderPlayerStats()
+    })
 
     loginBtn.addEventListener('click', () => {
         formsOverlay.classList.add('form_active')

@@ -158,10 +158,36 @@ header {
     }
     & .login_info {
         display: none;
+        &:hover .player_stats {
+            visibility: visible;
+            opacity: 1;
+        }
     }
     & .nickname {
         cursor: pointer;
         padding: 4px 10px;
+    }
+    & .player_stats {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        background-color: $backgroundField;
+        transition: 300ms;
+        visibility: hidden;
+        opacity: 0;
+        padding: 10px 12px 4px 12px;
+        font-weight: 600;
+        width: 200px;
+        top: 60px;
+        right: 40px;
+        z-index: 10;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+        & .player_stats_item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
     }
     & .logout {
         padding: 4px 10px;
