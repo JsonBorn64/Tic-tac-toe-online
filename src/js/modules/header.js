@@ -30,7 +30,7 @@ export default function header(db, ref, set, get, myAlert) {
     window.addEventListener('storage', authCheck)
 
     function backBtnVisibility() {
-        if (window.location.pathname === '/') {
+        if (window.location.pathname === '/1/') {
             backBtn.style.visibility = 'hidden'
         } else {
             backBtn.style.visibility = 'visible'

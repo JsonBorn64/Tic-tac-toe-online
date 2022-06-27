@@ -21,12 +21,15 @@ let playerCity
 let playerIp
 let turn
 let arr
+const nick = () => {
+    if (localStorage.getItem('login')) return localStorage.getItem('login')
+    else return undefined
+}
+let roomName = () => decodeURIComponent(location.search).slice(1)
 
 // Key bindings
 cells.forEach(cell => cell.onclick = () => makeTurn(cell))
 newGameBtn.onclick = newGame
-
-let roomName = () => decodeURIComponent(location.search).slice(1)
 
 function makeTurn(cell) {
     const cellNum = cell.getAttribute('cell-num')
@@ -147,17 +150,17 @@ function popupResultRender(turn) {
 }
 
 function playerStatsUpdate(turn) {
-    const nick = localStorage.getItem('login').toLowerCase()
-    get(ref(db, `tictac/registeredUsers/${nick}`)).then(snap => {
-        set(ref(db, `tictac/registeredUsers/${nick}/parties`), ++snap.val().parties)
+    if (nick() == undefined) return
+    get(ref(db, `tictac/registeredUsers/${nick().toLowerCase()}`)).then(snap => {
+        set(ref(db, `tictac/registeredUsers/${nick().toLowerCase()}/parties`), ++snap.val().parties)
         if (turn == 'x' && playerRole == 'x') {
-            set(ref(db, `tictac/registeredUsers/${nick}/wins`), ++snap.val().wins)
+            set(ref(db, `tictac/registeredUsers/${nick().toLowerCase()}/wins`), ++snap.val().wins)
         } else if (turn == 'o' && playerRole == 'o') {
-            set(ref(db, `tictac/registeredUsers/${nick}/wins`), ++snap.val().wins)
-        } else if (turn != playerRole) {
-            set(ref(db, `tictac/registeredUsers/${nick}/losses`), ++snap.val().losses)
+            set(ref(db, `tictac/registeredUsers/${nick().toLowerCase()}/wins`), ++snap.val().wins)
+        } else if (turn == 'ничья') {
+            set(ref(db, `tictac/registeredUsers/${nick().toLowerCase()}/draws`), ++snap.val().draws)
         } else {
-            set(ref(db, `tictac/registeredUsers/${nick}/draws`), ++snap.val().draws)
+            set(ref(db, `tictac/registeredUsers/${nick().toLowerCase()}/losses`), ++snap.val().losses)
         }
     })    
 }
@@ -230,16 +233,16 @@ function getIpCity() {
         playerAuthCheck()
     }).catch(err => console.log('Не удается получить айпи адрес: ', err))
 }
-
+console.log(nick())
 function distributePlayerRoles(snap) {
     // Players roles
     Object.keys(snap.val()).some((key, idx) => {
         if (idx > 2) return true
-        if (snap.val()[key] == playerIp && idx == 0 && snap.size > 1) {
+        if (snap.val()[key] == (playerIp || nick()) && idx == 0 && snap.size > 1) {
             nowTurnTip.innerHTML = '(Вы)'
             playerRole = 'x'
             myAlert('Вы играете крестиками')
-        } else if (snap.val()[key] == playerIp && idx == 1 && snap.size > 1) {
+        } else if (snap.val()[key] == (playerIp || nick()) && idx == 1 && snap.size > 1) {
             nowTurnTip.innerHTML = '(Не Вы)'
             playerRole = 'o'
             myAlert('Вы играете ноликами')
