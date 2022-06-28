@@ -48,6 +48,8 @@ export default function header(db, ref, set, get, myAlert) {
         localStorage.setItem('login', login)
         if (window.location.pathname.includes('room.html')) window.location.reload()
         form.submit.disabled = false
+        loginInfo.style.display = 'flex'
+        loginInfo.style.visibility = 'visible'
         formsOverlay.style.visibility = 'hidden'
         form.style.visibility = 'hidden'
         form.style.opacity = '0'
@@ -56,6 +58,7 @@ export default function header(db, ref, set, get, myAlert) {
     }
 
     function renderPlayerStats() {
+        if (!localStorage.getItem('login')) return
         const nick = localStorage.getItem('login').toLowerCase()
         get(ref(db, `tictac/registeredUsers/${nick}`)).then(snap => {
             let winsPercent = (snap.val().wins/(snap.val().parties/100)).toPrecision(2)

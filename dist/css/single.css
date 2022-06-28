@@ -646,6 +646,8 @@ header .login_info {
 header .login_info:hover .player_stats {
   visibility: visible;
   opacity: 1;
+  top: 60px;
+  right: 40px;
 }
 header .nickname {
   cursor: pointer;
@@ -656,7 +658,7 @@ header .player_stats {
   display: flex;
   flex-direction: column;
   background-color: rgb(223, 217, 201);
-  transition: 300ms;
+  transition: 300ms opacity;
   visibility: hidden;
   opacity: 0;
   padding: 10px 12px 4px 12px;

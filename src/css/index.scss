@@ -13,6 +13,7 @@ body {
     min-height: 100vh;
     padding: 20px 0;
     background-color: $backgroundBody;
+    overflow-x: hidden;
 }
 
 #alert {
@@ -239,6 +240,7 @@ table.leaders_table {
 
 table.leaders_table td,
 table.leaders_table th {
+    cursor: default;
     padding: 4px 0;
 }
 
@@ -260,3 +262,6 @@ table.leaders_table thead tr {
     border-bottom: none;
 }
 
+table.leaders_table tbody .nick {
+    cursor: pointer;
+}

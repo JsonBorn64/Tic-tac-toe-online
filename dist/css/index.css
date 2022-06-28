@@ -646,6 +646,8 @@ header .login_info {
 header .login_info:hover .player_stats {
   visibility: visible;
   opacity: 1;
+  top: 60px;
+  right: 40px;
 }
 header .nickname {
   cursor: pointer;
@@ -656,7 +658,7 @@ header .player_stats {
   display: flex;
   flex-direction: column;
   background-color: #dfd9c8;
-  transition: 300ms;
+  transition: 300ms opacity;
   visibility: hidden;
   opacity: 0;
   padding: 10px 12px 4px 12px;
@@ -697,6 +699,7 @@ body {
   min-height: 100vh;
   padding: 20px 0;
   background-color: #e9e6dd;
+  overflow-x: hidden;
 }
 
 #alert {
@@ -921,6 +924,7 @@ table.leaders_table {
 
 table.leaders_table td,
 table.leaders_table th {
+  cursor: default;
   padding: 4px 0;
 }
 
@@ -940,4 +944,8 @@ table.leaders_table thead th {
 
 table.leaders_table thead tr {
   border-bottom: none;
+}
+
+table.leaders_table tbody .nick {
+  cursor: pointer;
 }

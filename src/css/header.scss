@@ -161,6 +161,8 @@ header {
         &:hover .player_stats {
             visibility: visible;
             opacity: 1;
+            top: 60px;
+            right: 40px;
         }
     }
     & .nickname {
@@ -172,7 +174,7 @@ header {
         display: flex;
         flex-direction: column;
         background-color: $backgroundField;
-        transition: 300ms;
+        transition: 300ms opacity;
         visibility: hidden;
         opacity: 0;
         padding: 10px 12px 4px 12px;
