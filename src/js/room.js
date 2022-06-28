@@ -149,9 +149,9 @@ function popupResultRender(turn) {
     }
 }
 
-let lastStatsUpdate = 0
+let stopStatsUpdate = false
 function playerStatsUpdate(turn) {
-    if (nick() == undefined || lastStatsUpdate > Date.now()-300) return
+    if (nick() == undefined || stopStatsUpdate == true) return
     get(ref(db, `tictac/registeredUsers/${nick().toLowerCase()}`)).then(snap => {
         set(ref(db, `tictac/registeredUsers/${nick().toLowerCase()}/parties`), ++snap.val().parties)
         if (turn == 'x' && playerRole == 'x') {
@@ -164,7 +164,8 @@ function playerStatsUpdate(turn) {
             set(ref(db, `tictac/registeredUsers/${nick().toLowerCase()}/losses`), ++snap.val().losses)
         }
     })
-    lastStatsUpdate = Date.now()
+    stopStatsUpdate = true
+    setTimeout(() => stopStatsUpdate = false, 3000)
 }
 
 function newGame() {
