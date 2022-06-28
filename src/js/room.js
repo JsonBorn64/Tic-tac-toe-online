@@ -164,8 +164,7 @@ function playerStatsUpdate(turn) {
             set(ref(db, `tictac/registeredUsers/${nick().toLowerCase()}/losses`), ++snap.val().losses)
         }
     })
-    stopStatsUpdate = true
-    setTimeout(() => stopStatsUpdate = false, 3000)
+    setTimeout(() => stopStatsUpdate = false, 3000), stopStatsUpdate = true
 }
 
 function newGame() {

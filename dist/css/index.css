@@ -484,7 +484,7 @@ progress {
 header {
   display: flex;
   justify-content: space-between;
-  background-color: rgb(223, 217, 201);
+  background-color: #dfd9c8;
   align-items: center;
   height: 50px;
   position: absolute;
@@ -506,7 +506,7 @@ header .back_button {
   transition: 300ms;
 }
 header .back_button:hover {
-  background-color: rgb(233, 230, 221);
+  background-color: #e9e6dd;
 }
 header .login_wrapper {
   display: flex;
@@ -519,7 +519,7 @@ header .login_button {
   transition: 300ms;
 }
 header .login_button:hover {
-  background-color: rgb(233, 230, 221);
+  background-color: #e9e6dd;
 }
 header .register_button {
   margin: auto 0;
@@ -528,7 +528,7 @@ header .register_button {
   transition: 300ms;
 }
 header .register_button:hover {
-  background-color: rgb(233, 230, 221);
+  background-color: #e9e6dd;
 }
 header .forms_overlay {
   position: absolute;
@@ -544,7 +544,7 @@ header .login_form {
   position: absolute;
   display: flex;
   flex-direction: column;
-  background-color: rgb(223, 217, 201);
+  background-color: #dfd9c8;
   transition: 300ms;
   opacity: 0;
   padding: 10px 12px;
@@ -563,7 +563,7 @@ header .login_form input {
 header .login_form button {
   margin-top: 5px;
   height: 28px;
-  background-color: rgb(233, 230, 221);
+  background-color: #e9e6dd;
   transition: 300ms;
 }
 header .login_form button:hover {
@@ -580,7 +580,7 @@ header .register_form {
   position: absolute;
   display: flex;
   flex-direction: column;
-  background-color: rgb(223, 217, 201);
+  background-color: #dfd9c8;
   transition: 300ms;
   opacity: 0;
   width: 300px;
@@ -600,7 +600,7 @@ header .register_form input {
 header .register_form button {
   margin-top: 5px;
   height: 28px;
-  background-color: rgb(233, 230, 221);
+  background-color: #e9e6dd;
   transition: 300ms;
 }
 header .register_form button:hover {
@@ -610,7 +610,7 @@ header .pass_recovery_form {
   position: absolute;
   display: flex;
   flex-direction: column;
-  background-color: rgb(223, 217, 201);
+  background-color: #dfd9c8;
   max-width: 260px;
   transition: 300ms;
   opacity: 0;
@@ -634,7 +634,7 @@ header .pass_recovery_form input {
 header .pass_recovery_form button {
   margin-top: 5px;
   height: 28px;
-  background-color: rgb(233, 230, 221);
+  background-color: #e9e6dd;
   transition: 300ms;
 }
 header .pass_recovery_form button:hover {
@@ -655,7 +655,7 @@ header .player_stats {
   position: absolute;
   display: flex;
   flex-direction: column;
-  background-color: rgb(223, 217, 201);
+  background-color: #dfd9c8;
   transition: 300ms;
   visibility: hidden;
   opacity: 0;
@@ -680,7 +680,7 @@ header .logout {
   transition: 300ms;
 }
 header .logout:hover {
-  background-color: rgb(233, 230, 221);
+  background-color: #e9e6dd;
 }
 
 .form_active {
@@ -696,7 +696,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   padding: 20px 0;
-  background-color: rgb(233, 230, 221);
+  background-color: #e9e6dd;
 }
 
 #alert {
@@ -743,7 +743,7 @@ body {
   flex-wrap: wrap;
   width: 302px;
   height: 302px;
-  background-color: rgb(223, 217, 201);
+  background-color: #dfd9c8;
   border: 1px solid black;
 }
 .tictac_wrapper .tictac_cell {
@@ -802,7 +802,7 @@ body {
 
 .create_room_popup {
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
-  background-color: rgb(223, 217, 201);
+  background-color: #dfd9c8;
   transform: translate(-50%, -50%);
   justify-content: center;
   padding: 10px 12px;
@@ -822,7 +822,7 @@ body {
   margin-top: 6px;
   padding: 0 19px;
   height: 28px;
-  background-color: rgb(233, 230, 221);
+  background-color: #e9e6dd;
   transition: 300ms;
 }
 .create_room_popup button:hover {
@@ -847,7 +847,7 @@ body {
   display: flex;
   align-items: center;
   margin-bottom: 12px;
-  background-color: rgb(223, 217, 201);
+  background-color: #dfd9c8;
   padding: 10px 20px;
   cursor: pointer;
   transition: 300ms background;
@@ -871,13 +871,14 @@ body {
 }
 
 .online_mod {
-  background-color: rgb(223, 217, 201);
+  background-color: #dfd9c8;
   margin-top: -13px;
   width: 100%;
   max-height: 0px;
   overflow: scroll;
-  border-bottom: 1px solid rgb(223, 217, 201);
+  border-bottom: 1px solid #dfd9c8;
   transition: 600ms max-height;
+  margin-bottom: 20px;
 }
 .online_mod h6 {
   margin: 4px 0 10px 18px;
@@ -888,7 +889,7 @@ body {
 .online_mod .room {
   display: flex;
   justify-content: space-between;
-  background-color: rgb(233, 230, 221);
+  background-color: #e9e6dd;
   padding: 4px 18px;
   margin: 8px 0;
   cursor: pointer;
@@ -900,7 +901,7 @@ body {
 .online_mod button {
   display: flex;
   margin: 6px auto 8px auto;
-  background-color: rgb(233, 230, 221);
+  background-color: #e9e6dd;
   padding: 2px 30px;
   transition: 300ms background;
   justify-content: center;
@@ -911,4 +912,32 @@ body {
 .online_mod::-webkit-scrollbar {
   width: 0;
   height: 0;
+}
+
+table.leaders_table {
+  width: 302px;
+  text-align: center;
+}
+
+table.leaders_table td,
+table.leaders_table th {
+  padding: 4px 0;
+}
+
+table.leaders_table tr {
+  border-bottom: 8px solid #dfd9c8;
+}
+
+table.leaders_table thead {
+  background: #dfd9c8;
+}
+
+table.leaders_table thead th {
+  text-align: center;
+  font-weight: 600;
+  padding: 6px 16px;
+}
+
+table.leaders_table thead tr {
+  border-bottom: none;
 }

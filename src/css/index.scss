@@ -1,6 +1,6 @@
 @import 'bootstrap-normalize.css';
-$backgroundBody: rgb(233, 230, 221);
-$backgroundField: rgb(223, 217, 201);
+$backgroundBody: #e9e6dd;
+$backgroundField: #dfd9c8;
 @import 'header.scss';
 
 // game
@@ -196,6 +196,7 @@ body {
     overflow: scroll;
     border-bottom: 1px solid $backgroundField;
     transition: 600ms max-height;
+    margin-bottom: 20px;
     & h6 {
         margin: 4px 0 10px 18px;
     }
@@ -230,3 +231,32 @@ body {
         height: 0;
       }
 }
+
+table.leaders_table {
+    width: 302px;
+    text-align: center;
+}
+
+table.leaders_table td,
+table.leaders_table th {
+    padding: 4px 0;
+}
+
+table.leaders_table tr {
+    border-bottom: 8px solid $backgroundField;
+}
+
+table.leaders_table thead {
+    background: $backgroundField;
+}
+
+table.leaders_table thead th {
+    text-align: center;
+    font-weight: 600;
+    padding: 6px 16px;
+}
+
+table.leaders_table thead tr {
+    border-bottom: none;
+}
+
