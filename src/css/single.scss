@@ -2,17 +2,17 @@
 $backgroundBody: rgb(233, 230, 221);
 $backgroundField: rgb(223, 217, 201);
 @import 'header.scss';
+@import 'footer.scss';
 
 // game
 body {
     position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     min-height: 100vh;
-    padding: 20px 0;
     background-color: $backgroundBody;
+    overflow-x: hidden;
 }
 
 #loading {

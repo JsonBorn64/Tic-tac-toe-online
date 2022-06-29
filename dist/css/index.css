@@ -486,12 +486,11 @@ header {
   justify-content: space-between;
   background-color: #dfd9c8;
   align-items: center;
-  height: 50px;
-  position: absolute;
+  min-height: 50px;
   width: 100%;
-  top: 0;
   z-index: 10;
   padding: 0 20px;
+  margin-bottom: 40px;
 }
 header .back_button {
   font-size: 34px;
@@ -654,7 +653,7 @@ header .nickname {
   padding: 4px 10px;
 }
 header .player_stats {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   background-color: #dfd9c8;
@@ -690,14 +689,21 @@ header .logout:hover {
   opacity: 1 !important;
 }
 
-body {
-  position: relative;
+footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100px;
+  font-size: 14px;
+  margin-top: auto;
+}
+
+body {
+  position: relative;
+  display: flex;
+  align-items: center;
   flex-direction: column;
   min-height: 100vh;
-  padding: 20px 0;
   background-color: #e9e6dd;
   overflow-x: hidden;
 }
@@ -920,6 +926,7 @@ body {
 table.leaders_table {
   width: 302px;
   text-align: center;
+  margin-bottom: 80px;
 }
 
 table.leaders_table td,

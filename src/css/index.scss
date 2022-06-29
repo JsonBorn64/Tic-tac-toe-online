@@ -2,16 +2,15 @@
 $backgroundBody: #e9e6dd;
 $backgroundField: #dfd9c8;
 @import 'header.scss';
+@import 'footer.scss';
 
 // game
 body {
     position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     min-height: 100vh;
-    padding: 20px 0;
     background-color: $backgroundBody;
     overflow-x: hidden;
 }
@@ -236,6 +235,7 @@ body {
 table.leaders_table {
     width: 302px;
     text-align: center;
+    margin-bottom: 80px;
 }
 
 table.leaders_table td,

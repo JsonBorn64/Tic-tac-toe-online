@@ -5,16 +5,17 @@ export default function table(db, ref, get, query, orderByChild, limitToLast) {
     const loginInfo = document.querySelector('.login_info')
     let tdNicks
 
-    const list = query(ref(db, `tictac/registeredUsers/`), orderByChild('wins'), limitToLast(10))
-    get(list).then(snap => {
+    const usersList = query(ref(db, `tictac/registeredUsers/`), orderByChild('wins'), limitToLast(10))
+    get(usersList).then(snap => {
         const users = [];
         snap.forEach(childSnap => {users.push(childSnap.val())})
+        table.innerHTML = ''
         users.reverse().forEach((user, idx) => {
             table.innerHTML += `<tr>
-                <td>${++idx}</td>
-                <td class="nick">${user.login}</td>
-                <td>${user.wins}</td>
-            </tr>`
+            <td>${++idx}</td>
+            <td class="nick">${user.login}</td>
+            <td>${user.wins}</td>
+        </tr>`
         })
         tdNicks = document.querySelectorAll('.nick')
         tdNicks.forEach(td => {
@@ -25,8 +26,8 @@ export default function table(db, ref, get, query, orderByChild, limitToLast) {
                 }
                 playerStatsPopup.style.visibility = 'visible'
                 playerStatsPopup.style.opacity = '1'
-                playerStatsPopup.style.top = 40 + e.target.getBoundingClientRect().top + 'px'
-                playerStatsPopup.style.right = -110 + e.target.getBoundingClientRect().left + 'px'
+                playerStatsPopup.style.top = 50 + e.target.getBoundingClientRect().top + 'px'
+                playerStatsPopup.style.right = 0 + e.target.getBoundingClientRect().left + 'px'
                 if (e.target.classList.contains('nick')) {
                     let nick = e.target.innerText.toLowerCase()
                     get(ref(db, `tictac/registeredUsers/${nick}`)).then(snap => {
@@ -45,6 +46,7 @@ export default function table(db, ref, get, query, orderByChild, limitToLast) {
                 }
             }
             td.onmouseleave = () => {
+                playerStats.forEach(item => item.innerHTML = '-')
                 playerStatsPopup.style.visibility = ''
                 playerStatsPopup.style.opacity = ''
                 playerStatsPopup.style.top = ''

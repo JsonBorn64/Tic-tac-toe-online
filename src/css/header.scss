@@ -3,12 +3,11 @@ header {
     justify-content: space-between;
     background-color: $backgroundField;
     align-items: center;
-    height: 50px;
-    position: absolute;
+    min-height: 50px;
     width: 100%;
-    top: 0;
     z-index: 10;
     padding: 0 20px;
+    margin-bottom: 40px;
     & .back_button {
         font-size: 34px;
         height: 36px;
@@ -170,7 +169,7 @@ header {
         padding: 4px 10px;
     }
     & .player_stats {
-        position: absolute;
+        position: fixed;
         display: flex;
         flex-direction: column;
         background-color: $backgroundField;
