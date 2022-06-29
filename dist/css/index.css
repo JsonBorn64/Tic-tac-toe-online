@@ -926,7 +926,6 @@ body {
 table.leaders_table {
   width: 302px;
   text-align: center;
-  margin-bottom: 80px;
 }
 
 table.leaders_table td,
@@ -955,4 +954,15 @@ table.leaders_table thead tr {
 
 table.leaders_table tbody .nick {
   cursor: pointer;
+}
+
+#get_more_players {
+  width: 100%;
+  padding: 4px 0;
+  background-color: #dfd9c8;
+  transition: 300ms;
+  margin-bottom: 60px;
+}
+#get_more_players:hover {
+  background-color: rgb(235, 226, 207);
 }
