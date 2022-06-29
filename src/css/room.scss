@@ -68,8 +68,34 @@ body {
     width: 100%;
     max-width: 302px;
     & .tictac_title {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         text-align: center;
+        & small {
+            font-weight: normal;
+        }
+    }
+    & .rivals {
+        display: flex;
+        margin-bottom: 6px;
+        width: 100%;
+        font-weight: 600;
+        & .first_rival {
+            color: blue;
+            width: 50%;
+            text-align: center;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        & .second_rival {
+            color: red;
+            width: 50%;
+            text-align: center;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        & strong {
+            margin: 0 10px;
+        }
     }
     & .game_info{
         display: flex;

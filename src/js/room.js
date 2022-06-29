@@ -14,6 +14,8 @@ const playersCount = document.getElementById('players')
 const newGameBtn = document.getElementById('newGame')
 const loading = document.getElementById('loading')
 const scoreEl = document.querySelector('.score')
+const firstRival = document.querySelector('.first_rival')
+const secondRival = document.querySelector('.second_rival')
 let gameOver = false
 let score = [0, 0]
 let playerRole
@@ -187,7 +189,7 @@ const title = document.querySelector('.tictac_title')
 function detectingConnectionState() {
     onValue(ref(db, ".info/connected"), (snap) => {
         if (snap.val() === true) {
-            title.innerHTML = `Крестики-нолики онлайн <br> ${roomName()}`
+            title.innerHTML = `Крестики-нолики онлайн <br> <small>${roomName()}</small>`
         } else {
             title.innerHTML = 'Крестики-нолики оффлайн'
         }
@@ -200,6 +202,7 @@ function listenPlayers() {
     onValue(ref(db, `tictac/rooms/${roomName()}/players`), (snap) => {
         if (snap.exists()) {
             playersCount.textContent = `Игроков: ${snap.size}/2`
+            renderRivals(snap, snap.size)
             chatRemover(snap)
             distributePlayerRoles(snap)
             score = [0, 0]
@@ -207,6 +210,18 @@ function listenPlayers() {
             playerPresserve()
         }
     })
+}
+
+function renderRivals(snap, size) {
+    if (size == 1) {
+        Object.values(snap.val()).forEach(player => firstRival.innerHTML = player)
+        secondRival.innerHTML = '—'
+    } else if (size == 2) {
+        Object.values(snap.val()).forEach((player, idx) => {
+            if (idx == 0) firstRival.innerHTML = player
+            if (idx == 1) secondRival.innerHTML = player
+        })
+    }
 }
 
 function playerAuthCheck() {
