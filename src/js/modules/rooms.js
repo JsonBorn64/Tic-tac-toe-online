@@ -3,7 +3,7 @@ export default function rooms(db, ref, set, onValue, off) {
     const rooms = document.querySelector('.rooms')
     const createRoomBtn = document.getElementById('create_room')
     const createRoomPopup = document.querySelector('.create_room_popup')
-    const cancelBtn = createRoomPopup.querySelector('button:last-child')
+    const createRoomOverlay = document.querySelector('.create_room_overlay')
     const roomName = createRoomPopup.querySelector('input')
     const onlineBtn = document.querySelector('.game_mod:last-child')
     const onlineModeBtn = document.querySelector('.online_mod')
@@ -28,9 +28,11 @@ export default function rooms(db, ref, set, onValue, off) {
         if (state == 'open') {
             createRoomPopup.style.opacity = '1'
             createRoomPopup.style.left = '50%'
+            createRoomOverlay.style.visibility = 'visible'
         } else if (state == 'close') {
             createRoomPopup.style.opacity = '0'
             createRoomPopup.style.left = '-100%'
+            createRoomOverlay.style.visibility = 'hidden'
             setTimeout(() => roomName.value = '', 300)
         }
     }
@@ -40,7 +42,7 @@ export default function rooms(db, ref, set, onValue, off) {
         roomName.focus()
     })
 
-    cancelBtn.addEventListener('click', () => {
+    createRoomOverlay.addEventListener('click', () => {
         roomPopupSwitch('close')
     })
 

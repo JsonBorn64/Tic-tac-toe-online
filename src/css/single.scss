@@ -1,6 +1,6 @@
-@import 'bootstrap-normalize.css';
-$backgroundBody: rgb(233, 230, 221);
 $backgroundField: rgb(223, 217, 201);
+$backgroundBody: rgb(233, 230, 221);
+@import 'bootstrap-normalize.css';
 @import 'header.scss';
 @import 'footer.scss';
 
@@ -50,7 +50,7 @@ body {
 }
 
 #alert {
-    position: absolute;
+    position: fixed;
     top: -40px;
     background-color: rgb(204, 223, 201);
     padding: 5px 10px;

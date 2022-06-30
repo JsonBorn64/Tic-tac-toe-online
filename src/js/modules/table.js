@@ -53,14 +53,19 @@ export default function table(db, ref, get, query, orderByChild, limitToLast ) {
                 })
             }
 
-            nickCell.onmouseleave = () => {
-                // Hide popup and reset it's position and content
+            function resetPopup() {
                 playerStats.forEach(item => item.innerHTML = '-')
                 playerStatsPopup.style.visibility = ''
                 playerStatsPopup.style.opacity = ''
                 playerStatsPopup.style.top = ''
                 playerStatsPopup.style.right = ''
             }
+
+            nickCell.onmouseleave = () => {
+                resetPopup()
+            }
+
+            window.addEventListener('scroll', resetPopup)
         })
 
     }

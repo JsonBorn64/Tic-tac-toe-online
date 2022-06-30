@@ -13,6 +13,7 @@ export default function header(db, ref, set, get, myAlert) {
     const logoutBtn = loginInfo.querySelector('.logout')
     const backBtn = document.querySelector('.back_button')
     const playerStats = loginInfo.querySelectorAll('.player_stats_item_value')
+    const playerStatsPopup = document.querySelector('.player_stats')
 
     function authCheck() {
         const login = localStorage.getItem('login')
@@ -54,11 +55,13 @@ export default function header(db, ref, set, get, myAlert) {
         form.style.visibility = 'hidden'
         form.style.opacity = '0'
         form.reset()
-        authCheck()
+        authCheck() 
     }
 
     function renderPlayerStats() {
         if (!localStorage.getItem('login')) return
+        playerStatsPopup.style.visibility = 'visible'
+        playerStatsPopup.style.opacity = '1'
         const nick = localStorage.getItem('login').toLowerCase()
         get(ref(db, `tictac/registeredUsers/${nick}`)).then(snap => {
             let winsPercent = (snap.val().wins/(snap.val().parties/100)).toPrecision(2)
@@ -77,6 +80,14 @@ export default function header(db, ref, set, get, myAlert) {
 
     loginInfo.addEventListener('mouseenter', () => {
         renderPlayerStats()
+    })
+
+    loginInfo.addEventListener('mouseleave', () => {
+        playerStats.forEach(item => item.innerHTML = '-')
+        playerStatsPopup.style.visibility = ''
+        playerStatsPopup.style.opacity = ''
+        playerStatsPopup.style.top = ''
+        playerStatsPopup.style.right = ''
     })
 
     loginBtn.addEventListener('click', () => {

@@ -1,6 +1,6 @@
-@import 'bootstrap-normalize.css';
-$backgroundBody: rgb(233, 230, 221);
 $backgroundField: rgb(223, 217, 201);
+$backgroundBody: rgb(233, 230, 221);
+@import 'bootstrap-normalize.css';
 @import 'header.scss';
 @import 'footer.scss';
 
@@ -22,15 +22,17 @@ body {
     margin-bottom: 10px;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(3px);
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 900px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
     z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 28px;
     color: #fff;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
+    z-index: 9;
     & .left_cross {
         width: 70px;
         height: 4px;
@@ -50,7 +52,7 @@ body {
 }
 
 #alert {
-    position: absolute;
+    position: fixed;
     top: -40px;
     background-color: rgb(204, 223, 201);
     padding: 5px 10px;
