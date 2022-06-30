@@ -10,6 +10,8 @@ const resetBtn = document.getElementById('newGame')
 const popup = document.querySelector('.result_popup')
 const winMessage = popup.querySelector('.win_message')
 const blocked = document.querySelector('.blocked')
+const scoreEl = document.querySelector('.score')
+let score = [0, 0]
 let turn = 'x'
 let progArr
 
@@ -55,6 +57,7 @@ function winChecking() {
         winMessage.style.color = 'black'
         popup.style.left = '50%'
         popup.style.opacity = '1'
+        popup.style.visibility = 'visible'
         blocked.style.zIndex = '0'
     }
 }
@@ -65,13 +68,17 @@ function gameOver(turn) {
         winMessage.style.color = 'red'
         popup.style.left = '50%'
         popup.style.opacity = '1'
+        popup.style.visibility = 'visible'
         blocked.style.zIndex = '0'
+        scoreEl.innerHTML = `Счёт<span>${score[0]}</span>:<span>${++score[1]}</span>`
     } else {
         winMessage.innerHTML = 'Крестики победили!'
         winMessage.style.color = 'blue'
         popup.style.left = '50%'
         popup.style.opacity = '1'
+        popup.style.visibility = 'visible'
         blocked.style.zIndex = '0'
+        scoreEl.innerHTML = `Счёт<span>${++score[0]}</span>:<span>${score[1]}</span>`
     }
 }
 
@@ -80,6 +87,8 @@ function newGame() {
     nowTurn.innerHTML = turn = 'x'
     nowTurn.style.color = 'blue'
     popup.style.left = '-100%'
+    popup.style.opacity = '0'
+    popup.style.visibility = 'hidden'
     blocked.style.zIndex = '-10'
 }
 

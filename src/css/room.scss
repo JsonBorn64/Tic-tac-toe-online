@@ -138,17 +138,19 @@ body {
         position: absolute;
         text-align: center;
         left: -100%;
-        width: 270px;
+        white-space: nowrap;
         top: 60%;
         opacity: 0;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -40%);
         transition: 500ms;
         backdrop-filter: blur(6px);
-        padding: 25px 35px;
+        padding: 14px 20px;
+    }
+    & .win_message {
+        margin-top: -5px;
     }
     & .score {
         font-size: 20px;
-        margin-top: 15px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -164,14 +166,11 @@ body {
             color: red;
         }
     }
-    & .win_message {
-        margin-top: -5px;
-    }
     & #newGame {
         width: 150px;
-        height: 34px;
+        height: 28px;
         background-color: rgba(255, 255, 255, 0.6);
-        margin-top: 18px;
+        margin-top: 10px;
         transition: 300ms;
         &:hover {
             background-color: rgba(255, 255, 255, 0.8);
@@ -268,4 +267,10 @@ body {
         line-height: 18px;
         overflow: hidden;
     }
+}
+
+.share {
+    font-size: 16px;
+    text-decoration: underline;
+    cursor: pointer;
 }

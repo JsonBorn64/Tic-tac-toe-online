@@ -16,6 +16,7 @@ const loading = document.getElementById('loading')
 const scoreEl = document.querySelector('.score')
 const firstRival = document.querySelector('.first_rival')
 const secondRival = document.querySelector('.second_rival')
+const share = document.querySelector('.share')
 let gameOver = false
 let score = [0, 0]
 let playerRole
@@ -29,9 +30,24 @@ const nick = () => {
 }
 let roomName = () => decodeURIComponent(location.search).slice(1)
 
-// Key bindings
+// Bindings
 cells.forEach(cell => cell.onclick = () => makeTurn(cell))
 newGameBtn.onclick = newGame
+share.onclick = shareThisPage
+
+function shareThisPage() {
+    const url = window.location.href
+    try {
+        Navigator.share({
+            title: 'Крестики-Нолики онлайн',
+            text: 'Приглашение в комнату',
+            url: url
+        })
+    } catch {
+        navigator.clipboard.writeText(url)
+        myAlert('Ссылка сохранена в буфер обмена')
+    }
+}
 
 function makeTurn(cell) {
     const cellNum = cell.getAttribute('cell-num')

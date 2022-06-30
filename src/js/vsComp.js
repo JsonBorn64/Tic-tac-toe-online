@@ -59,6 +59,7 @@ function winChecking() {
         winMessage.style.color = 'black'
         popup.style.left = '50%'
         popup.style.opacity = '1'
+        popup.style.visibility = 'visible'
         blocked.style.zIndex = '0'
     }
 }
@@ -69,6 +70,7 @@ function gameOver(turn) {
         winMessage.style.color = 'red'
         popup.style.left = '50%'
         popup.style.opacity = '1'
+        popup.style.visibility = 'visible'
         blocked.style.zIndex = '0'
         scoreEl.innerHTML = `Счёт<span>${score[0]}</span>:<span>${++score[1]}</span>`
     } else {
@@ -76,6 +78,7 @@ function gameOver(turn) {
         winMessage.style.color = 'blue'
         popup.style.left = '50%'
         popup.style.opacity = '1'
+        popup.style.visibility = 'visible'
         blocked.style.zIndex = '0'
         scoreEl.innerHTML = `Счёт<span>${++score[0]}</span>:<span>${score[1]}</span>`
     }
@@ -86,6 +89,8 @@ function newGame() {
     nowTurn.innerHTML = turn = 'x'
     nowTurn.style.color = 'blue'
     popup.style.left = '-100%'
+    popup.style.opacity = '0'
+    popup.style.visibility = 'hidden'
     blocked.style.zIndex = '-10'
 }
 
