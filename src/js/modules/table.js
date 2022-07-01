@@ -3,7 +3,6 @@ export default function table(db, ref, get, query, orderByChild, limitToLast ) {
     const playerStats = document.querySelectorAll('.player_stats_item_value')
     const playerStatsPopup = document.querySelector('.player_stats')
     const loginInfo = document.querySelector('.login_info')
-    // const morePlayersBtn = document.querySelector('#get_more_players')
 
     function renderTableTopPlayers(snap) {
         // Get the top players and push them to common array
@@ -82,9 +81,5 @@ export default function table(db, ref, get, query, orderByChild, limitToLast ) {
         })
     }
     getSortedByWinsPlayers()
-
-    // morePlayersBtn.addEventListener('click', () => {
-    //     getSortedByWinsPlayers(6)
-    // })
 
 }

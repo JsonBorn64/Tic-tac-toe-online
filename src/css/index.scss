@@ -125,6 +125,7 @@ body {
     padding: 10px 12px;
     position: fixed;
     transition: 400ms;
+    width: min-content;
     flex-wrap: wrap;
     display: flex;
     left: -100%;
